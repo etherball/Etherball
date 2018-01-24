@@ -110,8 +110,8 @@ contract EbyteDistribution {
             if (getEthBalance(addresses[i]) < ethBalance) {
                 continue;
             }
-            uint256 ethMulti = getEthBalance(addresses[i]) / 1000000000000000000;
-            uint256 toDistr = rate * ethMulti;
+            uint256 ethMulti = getEthBalance(addresses[i]) / 1000000000;
+            uint256 toDistr = (rate * ethMulti) / 1000000000;
             sendTokens(addresses[i], toDistr);
             ebyteToken.transfer(addresses[i], toDistr);
         }
